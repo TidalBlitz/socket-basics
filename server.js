@@ -12,7 +12,7 @@ io.on('connection', function (socket) {
 	socket.on('message', function (message) {
 		console.log('Message received: ' + message.text);
 
-		socket.broadcast.emit('message', message); //message receiver will see the message of sender
+		io.emit('message', message); //message receiver will see the message of sender
 	});
 
 	socket.emit('message', {
